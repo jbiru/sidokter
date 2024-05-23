@@ -25,4 +25,11 @@ class Home extends CI_Controller {
 		$this->load->view('home');
 		$this->load->view('layouts/footer');
 	}
+	public function baru()
+	{
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/navbar');
+		$this->load->view('home');
+		$this->load->view('layouts/footer');
+	}
 }
