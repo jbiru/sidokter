@@ -36,7 +36,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="index.html#about">Login</a>
+      <a class="btn-getstarted" href="<?= base_url('signin')?>">Login</a>
 
     </div>
   </header>
