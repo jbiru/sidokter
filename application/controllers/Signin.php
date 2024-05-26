@@ -3,40 +3,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Signin extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/userguide3/general/urls.html
-	 */
-	public function index()
+		public function index()
 	{
 		$this->load->view('signin.php');
 	}
 	public function aksi()
 	{
-		$this->form_validation->set_rules('username', 'Username', 'required');
-		$this->form_validation->set_rules('password', 'Password', 'required',
-				array('required' => 'You must provide a %s.')
-		);
+		$username = $this->input->post('username');
+        $password = $this->input->post('password');
 
-		if ($this->form_validation->run() == FALSE)
-		{
-			redirect('signin');
-		}
-		else
-		{
-			redirect('dashboard');
-			
-		}
+        // Validate user input
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+
+		$u=array('username'=>$username);
+		$p=array('password'=>$password);
+        $query=$this->db->get_where('user',$u,$p)->result();
+        foreach ($query as $row) {
+            if($row->username==$username && $row->password==$password) {
+                $this->session->set_userdata('username',"$row->username");
+                $this->session->set_userdata('password',"$row->password");
+                $this->session->set_userdata('level',"$row->level");
+                $this->session->set_userdata('nama_user',"$row->nama_user");
+                $this->session->set_userdata('id_user',"$row->id_user");
+            }else{}
+        }
+        redirect('signin/index');
 	}
 }
