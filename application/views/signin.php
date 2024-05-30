@@ -55,12 +55,12 @@
                 <?php if ($this->session->flashdata('error')): ?>
                     <p class="error"><?php echo $this->session->flashdata('error'); ?></p>
                 <?php endif; ?>
-                <?php echo form_open('signin/aksi'); ?>    
+                  <form action="<?=base_url('signin/aksi')?>" method="post">
                     <div class="mb-3">
-                      <input type="text" class="form-control form-control-lg " required size=10 placeholder="Username" name="username" value="<?php echo set_value('username'); ?>" size="50"aria-label="username">
+                      <input type="text" class="form-control form-control-lg " autocomplete="off" required size=10 placeholder="Username" name="username" aria-label="username">
                     </div>
                     <div class="mb-3">
-                      <input type="password" class="form-control form-control-lg required" required size=8 value="<?php echo set_value('password'); ?>" size="50" placeholder="Password" name="password" aria-label="Password">
+                      <input type="password" class="form-control form-control-lg required" required size=8 autocomplete="off"  placeholder="Password" name="password" aria-label="Password">
                     </div>
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe" name="remember" >

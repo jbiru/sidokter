@@ -1,3 +1,36 @@
+<footer class="footer pt-1  ">
+        <div class="container-fluid">
+          <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-6 mb-lg-0 mb-4">
+              <div class="copyright text-center text-sm text-muted text-lg-start">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>,
+                made with <i class="fa fa-heart"></i> by
+                <a href="https://www.lamongankab.go.id/rsudngimbang" class="font-weight-bold" target="_blank">Program</a>
+                for a better web.
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                <li class="nav-item">
+                  <a href="https://www.lamongankab.go.id/rsudngimbang" class="nav-link text-muted" target="_blank">Creative Tim</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.lamongankab.go.id/rsudngimbang" class="nav-link text-muted" target="_blank">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.lamongankab.go.id/rsudngimbang" class="nav-link text-muted" target="_blank">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.lamongankab.go.id/rsudngimbang" class="nav-link pe-0 text-muted" target="_blank">License</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
 </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -6,7 +39,7 @@
     <div class="card shadow-lg">
       <div class="card-header pb-0 pt-3 ">
         <div class="float-start">
-          <h5 class="mt-3 mb-0">Argon Configurator</h5>
+          <h5 class="mt-3 mb-0">Theme Configurator</h5>
           <p>See our dashboard options.</p>
         </div>
         <div class="float-end mt-4">
@@ -56,21 +89,21 @@
             <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
           </div>
         </div>
-        <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/argon-dashboard">Free Download</a>
-        <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/license/argon-dashboard">View documentation</a>
         <div class="w-100 text-center">
-          <a class="github-button" href="https://github.com/creativetimofficial/argon-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/argon-dashboard on GitHub">Star</a>
           <h6 class="mt-3">Thank you for sharing!</h6>
-          <a href="https://twitter.com/intent/tweet?text=Check%20Argon%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fargon-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-            <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
+          <a href="https://www.youtube.com/@rsudngimbangkab.lamongan1279" class="btn btn-dark mb-0 me-2" target="_blank">
+            <i class="fab fa-youtube me-1" aria-hidden="true"></i> YouTube
           </a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/argon-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-            <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
+          <a href="https://www.instagram.com/rsud_ngimbang/" class="btn btn-dark mb-0 me-2" target="_blank">
+            <i class="fab fa-instagram me-1" aria-hidden="true"></i> Instagram
           </a>
         </div>
       </div>
     </div>
   </div>
+
+  
+
   <!--   Core JS Files   -->
   <script src="<?= base_url()?>assets/argon/assets/js/core/popper.min.js"></script>
   <script src="<?= base_url()?>assets/argon/assets/js/core/bootstrap.min.js"></script>
@@ -172,7 +205,75 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="<?= base_url() ?>assets/argon/assets//assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script src="<?= base_url() ?>assets/argon/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <!-- <link href="<?= base_url() ?>assets/datatables/datatables.min.css" rel="stylesheet">
+  <link href="<?= base_url() ?>assets/datatables/datatables.css" rel="stylesheet">
+  <script src="<?= base_url() ?>assets/datatables/datatables.min.js"></script>
+  <script src="<?= base_url() ?>assets/datatables/datatables.js"></script>
+  <script src="<?= base_url() ?>assets/jquery/jquery.js"></script>
+  <script src="cdn.datatables.net/2.0.8/js/dataTables.min.js"></script> -->
+
+  <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.8/datatables.min.css" rel="stylesheet">
+  <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.8/datatables.min.js"></script>
+
+  <script>
+    // let table = new DataTable('#myTable');
+    $(document).ready( function () {
+      $('#myTable').DataTable();
+    } );
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get all elements with class 'alert'
+      var alerts = document.querySelectorAll('.alert');
+
+      // Loop through each alert
+      alerts.forEach(function(alert) {
+          // Show Sweet Alert when an alert is found
+          Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Data Master <?= $this->session->flashdata('info'); ?>",
+          showConfirmButton: false,
+          timer: 1500
+          });
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get all elements with class 'alert'
+      var alerts = document.querySelectorAll('.alert-hapus');
+
+      // Loop through each alert
+      alerts.forEach(function(alert) {
+          // Show Sweet Alert when an alert is found
+          Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Data Master <?= $this->session->flashdata('hapus'); ?> Berhasil Dihapus",
+          showConfirmButton: false,
+          timer: 1500
+          });
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get all elements with class 'alert'
+      var alerts = document.querySelectorAll('.alert-update');
+
+      // Loop through each alert
+      alerts.forEach(function(alert) {
+          // Show Sweet Alert when an alert is found
+          Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Data master <?= $this->session->flashdata('update'); ?> berhasil diubah",
+          showConfirmButton: false,
+          timer: 3000
+          });
+      });
+    });
+  </script>
 </body>
 
 </html>

@@ -7,10 +7,11 @@
   <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url()?>assets/argon/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="<?= base_url() ?>assets/assets/img/logo.png" rel="icon"">
   <title>
-    Argon Dashboard 2 by Creative Tim
+    SiDokter
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- <link href="cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css" rel="stylesheet" /> -->
   <!-- Nucleo Icons -->
   <link href="<?= base_url()?>assets/argon/assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="<?= base_url()?>assets/argon/assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -19,4 +20,6 @@
   <link href="<?= base_url()?>assets/argon/assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="<?= base_url()?>assets/argon/assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  
+  
 </head>
