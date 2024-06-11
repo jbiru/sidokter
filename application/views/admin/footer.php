@@ -274,6 +274,22 @@
       });
     });
   </script>
+
+  <!-- preview upload -->
+<script>
+  function viewImage(input){
+    if(input.files && input.files[0])
+    {
+      var reader=new FileReader();
+      reader.onload=function(e){
+        $(#gambar_load).attr('src',e.target.result);
+      }
+      reader.readAsdataURL(input.files[0]);
+    }
+  }
+</script>
+
+
 </body>
 
 </html>
