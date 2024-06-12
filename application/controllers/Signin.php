@@ -30,6 +30,7 @@ class Signin extends CI_Controller {
                 $this->session->set_userdata('username',"$row->username");
                 $this->session->set_userdata('password',"$row->password");
                 $this->session->set_userdata('level',"$row->level");
+                $this->session->set_userdata('id_level',"$row->id_level");
                 $this->session->set_userdata('nama_user',"$row->nama_user");
                 $this->session->set_userdata('id_user',"$row->id_user");
                 $this->session->set_userdata('id_bidang',"$row->id_bidang");

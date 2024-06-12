@@ -67,9 +67,32 @@
   <script src="<?= base_url() ?>assets/assets/vendor/aos/aos.js"></script>
   <script src="<?= base_url() ?>assets/assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="<?= base_url() ?>assets/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="<?= base_url() ?>assets/jquery/jquery.js"></script>
 
   <!-- Main JS File -->
   <script src="<?= base_url() ?>assets/assets/js/main.js"></script>
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#live_search").keyup(function () { 
+        // alert ($(this).val());die;
+        var input =$(this).val();
+        if (input !="") {
+          $.ajax({
+            url: "<?php echo base_url('home/livesearch');?>",
+            method:"POST",
+            data: {input:input},
+            success: function (data) {
+              $("#searchresult").html(data);
+            }
+          });
+        } else{
+          $("#searchresult").css("display","none");
+        }
+      });
+    });
+  </script>
 
 </body>
 

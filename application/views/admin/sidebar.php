@@ -19,6 +19,10 @@
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
+        <?php 
+         $id_level=$this->session->userdata('id_level');
+        if($id_level<=2){
+        ?>
         <li class="nav-item">
           <a class="nav-link "  href="<?= base_url('master') ?>">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -27,6 +31,7 @@
             <span class="nav-link-text ms-1">Master</span>
           </a>
         </li>
+        
         <li class="nav-item">
           <a class="nav-link " href="<?= base_url('dokumen/addDokumen') ?>">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -43,6 +48,7 @@
             <span class="nav-link-text ms-1">DokumenKu</span>
           </a>
         </li>
+        <?php }?>
         <li class="nav-item">
           <a class="nav-link " href="<?= base_url('dokumen') ?>">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -70,6 +76,10 @@
             <span class="nav-link-text ms-1">Sign Out</span>
           </a>
         </li>
+
+        <?php 
+        if($id_level<=1){
+        ?>
         <li class="nav-item">
           <a class="nav-link " href="<?= base_url('user_Cont') ?>">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -78,6 +88,8 @@
             <span class="nav-link-text ms-1">User</span>
           </a>
         </li>
+          <?php }?>
+
       </ul>
     </div>
     <div class="sidenav-footer mx-3 ">

@@ -49,6 +49,7 @@
                 <div class="card-header pb-0 text-start">
                   <h4 class="font-weight-bolder">Sign In</h4>
                   <p class="mb-0">Hai... Selamat datang, Selamat menjelajahi dokumen dengan mudah</p>
+                  <?php echo $this->session->flashdata('pesan');?>
                 </div>
                 <div class="card-body">
                 <?php echo validation_errors(); ?>

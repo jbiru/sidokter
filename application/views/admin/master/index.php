@@ -13,6 +13,12 @@
 
 
       <div class="row mt-4">
+
+        <?php 
+        $id_level=$this->session->userdata('id_level');
+        if($id_level<=1){
+        ?>
+
         <div class="col-lg-4">
           <div class="card">
             <div class="card-header pb-0 p-3">
@@ -223,6 +229,9 @@
             </div>
           </div>
         </div>
+        <?php }?>
+
+
         <div class="col-lg-4">
           <div class="card">
             <div class="card-header pb-0 p-3">

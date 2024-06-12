@@ -32,4 +32,8 @@ class Home extends CI_Controller {
 		$this->load->view('home');
 		$this->load->view('layouts/footer');
 	}
+	public function livesearch()
+	{
+		$this->load->view('livesearch');
+	}
 }

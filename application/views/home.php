@@ -71,16 +71,10 @@
         <div class="row mb-5 mt-5">
           <div class="col-lg-3"></div>
           <div class="input-group input-group-lg col-lg-6 col-md-8 justify-content-center">
-            <input type="text" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Masukan Kata Kunci Pencarian..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-            <datalist id="datalistOptions">
-                <option value="San Francisco">
-                <option value="New York">
-                <option value="Seattle">
-                <option value="Los Angeles">
-                <option value="Chicago">
-              </datalist>
+            <input id="live_search" type="text" class="form-control" list="datalistOptions" name="input" placeholder="Masukan Kata Kunci Pencarian..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
             <span type="button" class="input-group-text btn btn-primary" id="inputGroup-sizing-lg">Cari Dokumen</span>
           </div>
+          <div id="searchresult"></div>
           <span class="text-danger mx-1 mt-2">Catatan :</span>
           <span class="text-secondary text-xs mx-1 mt-2">Mohon gunakan komputer atau menggunakan tablet untuk mendapatkan hasil tampilan web yang bagus dan menarik</span>
           <div class="col-lg-3"></div>

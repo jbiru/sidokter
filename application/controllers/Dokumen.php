@@ -4,6 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Dokumen extends CI_Controller {
     public function __construct() {
         parent::__construct();
+        if($this->session->userdata('username')==FALSE){
+            $this->session->set_flashdata('pesan',' <div class="alert alert-danger alert-dismissible fade show" role="alert">
+           Anda Belum login
+            <button type="button" class="close" data-dismiss="alert" area-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>');
+        redirect('signin/index');
+        }
     }
     public function index() {
         $data['title']='Semua Dokumen';
@@ -112,53 +119,60 @@ class Dokumen extends CI_Controller {
     }
     public function update($id)
     {
-        
-        $config['upload_path']          = './upload/';
-        $config['allowed_types']        = 'gif|jpg|png|pdf';
-        $config['max_size']             = 100000;
-        $config['encrypt_name']         = FALSE;
 
-        $this->load->library('upload', $config);
         $judul=$this->input->post('judul');
         $jenis_dokumen=$this->input->post('jenis_dokumen');
         $tgl_terbit=$this->input->post('tgl_terbit');
         $tgl_upload=date("Y-m-d H:i:s");
-        // $dokumen=$_FILES['dokumen']['name'];
         $sumber=$this->input->post('sumber');
         $status=$this->input->post('status');
         $file_old=$this->input->post('file_old');
         $nama_user=$this->session->userdata('nama_user');
-
         $id_bidang_user=$this->session->userdata('id_bidang');
-        $nama_bidang=$this->db->get_where('bidang',array('id_bidang'=>$id_bidang_user))->row();
-        $dokumen='';
-        if(!$dokumen){
-            $dokumen=$file_old;
-        }else{
-            $dokumen=$_FILES['dokumen']['name'];
-        }
-        $data_insert=array(
+
+        $img=$_FILES['file']['name'];
+
+        $data=array(
             'judul_dokumen' => $judul,
             'jenis_dokumen' => $jenis_dokumen,
             'tgl_terbit'    => $tgl_terbit,
             'tgl_upload'    => $tgl_upload,
-            'file'          => str_replace(" ", "_",$dokumen),
+            'file'          => str_replace(" ", "_",$img),
             'status'        => $status,
             'sumber'        => $sumber,
             'nama_user'     => $nama_user,
             'id_user'       => $this->session->userdata('id_user'),
             'bidang'        => $nama_bidang->nama_bidang,
         );
-        if (!$this->upload->do_upload('dokumen')) {
-            $error = array('error' => $this->upload->display_errors());
-            print_r($error);
-        } else {
-            $data = $this->upload->data();
-            $image_path = 'upload/' . $data['file_name'];
-            // Simpan path gambar ke database
-            $this->db->insert('activity_document',$data_insert);
+
+        $where=array(
+            'id_activity_document'   =>$id
+        );
+        $file_old=$this->input->post('file_old');
+        if($img==''){
+            $gl=array('file'=>$file_old);
+            $this->m_app->update_where('activity_document',$where,$data);
+            $this->m_app->update_where('activity_document',$where,$gl);
+        }else{
+                    
+            $config['upload_path']          = './upload/';
+            $config['allowed_types']        = 'gif|jpg|png|pdf';
+            $config['max_size']             = 100000;
+            $config['encrypt_name']         = FALSE;
+
+            $this->load->library('upload', $config);
+
+            if(!$this->upload->do_upload('file')){
+                echo "Gambar Gagal Upload, Periksa tipe gambar !!!!";
+            }else{
+                $img=$this->upload->data('file_name');
+            }
+            $gambar=array('file'=>$img);
+            $this->m_app->update('activity_document',$where,$data,$gambar);
+            $path='./upload/'.$file_old;
+			unlink($path);
         }
-        // Redirect atau tampilkan pesan sukses
+        $this->session->set_flashdata('msg','');
         redirect('dokumen/index');
         
     }
