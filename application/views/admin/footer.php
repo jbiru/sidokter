@@ -121,7 +121,7 @@
     new Chart(ctx1, {
       type: "line",
       data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: ["Januari","Februari","Maret","April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
         datasets: [{
           label: "Mobile apps",
           tension: 0.4,
@@ -131,7 +131,7 @@
           backgroundColor: gradientStroke1,
           borderWidth: 3,
           fill: true,
-          data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+          data: [50, 40, 300, 220, 500, 250, 400, 230, 470, 570, 350, 600],
           maxBarThickness: 6
 
         }],

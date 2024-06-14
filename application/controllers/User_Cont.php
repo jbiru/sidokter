@@ -74,4 +74,13 @@ class User_Cont extends CI_Controller {
         $this->session->set_flashdata('hapus', $nama);
         redirect('user_Cont/index');
     }
+    public function profile($id)
+    {
+        $data['title']='Profile';
+        $data['profile']=$this->db->get_where('user',array('id_user'=>$id))->row();
+        $this->load->view('admin/header');
+        $this->load->view('admin/sidebar',$data);
+        $this->load->view('admin/profil/index',$data);
+        $this->load->view('admin/footer');
+    }
 }

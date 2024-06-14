@@ -130,8 +130,8 @@ class Dokumen extends CI_Controller {
         $nama_user=$this->session->userdata('nama_user');
         $id_bidang_user=$this->session->userdata('id_bidang');
 
-        $img=$_FILES['file']['name'];
-
+        $img=$_FILES['dokumen']['name'];
+        $nama_bidang=$this->db->get_where('bidang',array('id_bidang'=>$id_bidang_user))->row();
         $data=array(
             'judul_dokumen' => $judul,
             'jenis_dokumen' => $jenis_dokumen,
@@ -149,12 +149,14 @@ class Dokumen extends CI_Controller {
             'id_activity_document'   =>$id
         );
         $file_old=$this->input->post('file_old');
+
         if($img==''){
             $gl=array('file'=>$file_old);
-            $this->m_app->update_where('activity_document',$where,$data);
-            $this->m_app->update_where('activity_document',$where,$gl);
+            $this->db->where($where);
+            $this->db->update($data);
+            // $this->m_app->update_where('activity_document',$where,$data);
+            // $this->m_app->update_where('activity_document',$where,$gl);
         }else{
-                    
             $config['upload_path']          = './upload/';
             $config['allowed_types']        = 'gif|jpg|png|pdf';
             $config['max_size']             = 100000;
@@ -168,8 +170,11 @@ class Dokumen extends CI_Controller {
                 $img=$this->upload->data('file_name');
             }
             $gambar=array('file'=>$img);
-            $this->m_app->update('activity_document',$where,$data,$gambar);
-            $path='./upload/'.$file_old;
+            $this->db->where($where);
+            $this->db->update($data);
+            $this->db->update($gambar);
+            // $this->m_app->update('activity_document',$where,$data,$gambar);
+            $path='./upload/'.str_replace(" ", "_",$file_old);
 			unlink($path);
         }
         $this->session->set_flashdata('msg','');

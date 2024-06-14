@@ -103,7 +103,7 @@
                                   <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Dokumen <?= $row->judul_dokumen;?></h1>
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <form method="POST" action="<?= base_url('dokumen/update/'.$row->id_activity_document)?>" >
+                                <form method="POST" action="<?= base_url('dokumen/update/'.$row->id_activity_document)?>" enctype="multipart/form-data" >
                                   <div class="modal-body">
                                     <div class="row">
                                       <div class="col-lg-6">

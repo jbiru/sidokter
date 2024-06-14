@@ -15,6 +15,8 @@ class Dashboard extends CI_Controller {
 
     public function index() {
         $data['title']='Dashboard';
+        $data['top']=$this->db->query("SELECT * FROM activity_document ORDER BY id_activity_document LIMIT 5")->result();
+        $data['dokumen']=$this->db->get('dokumen')->result();
         $this->load->view('admin/header');
         $this->load->view('admin/sidebar',$data);
         $this->load->view('admin/dashboard/index',$data);

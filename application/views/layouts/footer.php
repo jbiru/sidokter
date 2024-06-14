@@ -90,7 +90,7 @@
         } else{
           $("#searchresult").css("display","none");
         }
-      });
+      }), 1000;
     });
   </script>
 

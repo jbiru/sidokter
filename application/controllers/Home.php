@@ -34,6 +34,8 @@ class Home extends CI_Controller {
 	}
 	public function livesearch()
 	{
-		$this->load->view('livesearch');
+		$keyword = $this->input->post('keyword');
+        $data['results'] = $this->Search_model->search($keyword);
+		$this->load->view('livesearch',$data);
 	}
 }
