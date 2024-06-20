@@ -90,7 +90,31 @@
         } else{
           $("#searchresult").css("display","none");
         }
-      }), 1000;
+      });
+      var debounceTimer;
+      $('#live_search').on('input', function() {
+          var input = $(this).val();
+          clearTimeout(debounceTimer);
+          debounceTimer = setTimeout(function() {
+              $.ajax({
+                  url: "<?php echo base_url('home/livesearch');?>",
+                  method: "POST",
+                  data: {input: input},
+                  success: function(data){
+                      $('#searchresult').html(data);
+                  }
+              });
+          }, 5000); // Waktu penundaan sebelum permintaan AJAX dikirim (dalam milidetik)
+      });
+       // Ketika input diubah
+       $('#search').on('input', function() {
+                var input = $(this).val();
+                if(input.trim() !== '') {
+                    sendAjaxRequest(input);
+                } else {
+                    $('#searchresult').html(''); // Hapus hasil pencarian jika input kosong
+                }
+            });
     });
   </script>
 

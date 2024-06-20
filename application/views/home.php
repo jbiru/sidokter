@@ -71,7 +71,7 @@
         <div class="row mb-5 mt-5">
           <div class="col-lg-3"></div>
           <div class="input-group input-group-lg col-lg-6 col-md-8 justify-content-center">
-            <input id="live_search" type="text" class="form-control" list="datalistOptions" name="input" placeholder="Masukan Kata Kunci Pencarian..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            <input id="live_search" type="text" class="form-control" list="datalistOptions"  name="input" placeholder="Masukan Kata Kunci Pencarian..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
             <span type="button" class="input-group-text btn btn-primary" id="inputGroup-sizing-lg">Cari Dokumen</span>
           </div>
           <div id="searchresult"></div>

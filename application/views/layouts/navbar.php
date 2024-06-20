@@ -10,7 +10,7 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html#hero" class="">Home</a></li>
+          <li><a href="<?php echo base_url()?>" class="">Home</a></li>
           <li><a href="index.html#about">Dokumen</a></li>
           <li><a href="index.html#features">Anggota</a></li>
           <li><a href="index.html#services">Kegiatan</a></li>

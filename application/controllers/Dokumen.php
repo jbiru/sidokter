@@ -2,6 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dokumen extends CI_Controller {
+
+    
+    
     public function __construct() {
         parent::__construct();
         if($this->session->userdata('username')==FALSE){
@@ -14,6 +17,7 @@ class Dokumen extends CI_Controller {
     }
     public function index() {
         $data['title']='Semua Dokumen';
+        $this->db->ORDER_BY('id_activity_document','DESC');
         $data['dokumen']=$this->db->get('activity_document')->result();
         
         $this->load->view('admin/header');
@@ -41,9 +45,10 @@ class Dokumen extends CI_Controller {
     }
     public function upload()
     {
+        date_default_timezone_set('Asia/Jakarta');
         $config['upload_path']          = './upload/';
         $config['allowed_types']        = 'gif|jpg|png|pdf';
-        $config['max_size']             = 100000;
+        $config['max_size']             = 1000000;
         $config['encrypt_name']         = FALSE;
 
         $this->load->library('upload', $config);
@@ -84,6 +89,7 @@ class Dokumen extends CI_Controller {
             // Simpan path gambar ke database
             $this->db->insert('activity_document',$data_insert);
             // Redirect atau tampilkan pesan sukses
+            $this->session->set_flashdata('info', $judul);
             redirect('dokumen/index');
         }
     }
@@ -120,6 +126,7 @@ class Dokumen extends CI_Controller {
     public function update($id)
     {
 
+        date_default_timezone_set('Asia/Jakarta');
         $judul=$this->input->post('judul');
         $jenis_dokumen=$this->input->post('jenis_dokumen');
         $tgl_terbit=$this->input->post('tgl_terbit');
@@ -136,7 +143,8 @@ class Dokumen extends CI_Controller {
             'judul_dokumen' => $judul,
             'jenis_dokumen' => $jenis_dokumen,
             'tgl_terbit'    => $tgl_terbit,
-            'tgl_upload'    => $tgl_upload,
+            'tgl_edit'      => date("Y-m-d H:i:s"),
+            'tgl_upload'    => $tgl_terbit,
             'file'          => str_replace(" ", "_",$img),
             'status'        => $status,
             'sumber'        => $sumber,
@@ -149,35 +157,33 @@ class Dokumen extends CI_Controller {
             'id_activity_document'   =>$id
         );
         $file_old=$this->input->post('file_old');
-
+        
         if($img==''){
             $gl=array('file'=>$file_old);
-            $this->db->where($where);
-            $this->db->update($data);
-            // $this->m_app->update_where('activity_document',$where,$data);
-            // $this->m_app->update_where('activity_document',$where,$gl);
+            $this->Dokumen_model->update_where('activity_document',$where,$data);
+            $this->Dokumen_model->update_where('activity_document',$where,$gl);
         }else{
             $config['upload_path']          = './upload/';
             $config['allowed_types']        = 'gif|jpg|png|pdf';
-            $config['max_size']             = 100000;
+            $config['max_size']             = 1000000;
             $config['encrypt_name']         = FALSE;
 
             $this->load->library('upload', $config);
-
-            if(!$this->upload->do_upload('file')){
+            // echo 'ganti gambar';die;
+            if(!$this->upload->do_upload('dokumen')){
                 echo "Gambar Gagal Upload, Periksa tipe gambar !!!!";
             }else{
-                $img=$this->upload->data('file_name');
+                // $img=$this->upload->data('file_name');
+                $img = $this->upload->data();
+                echo $image_path = 'upload/' . $img['file_name'];
             }
+            // die;
             $gambar=array('file'=>$img);
-            $this->db->where($where);
-            $this->db->update($data);
-            $this->db->update($gambar);
-            // $this->m_app->update('activity_document',$where,$data,$gambar);
-            $path='./upload/'.str_replace(" ", "_",$file_old);
+            $this->Dokumen_model->update('activity_document',$where,$data,$gambar);
+            $path='./upload/'.$file_old;
 			unlink($path);
         }
-        $this->session->set_flashdata('msg','');
+        $this->session->set_flashdata('update',$judul);
         redirect('dokumen/index');
         
     }

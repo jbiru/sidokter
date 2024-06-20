@@ -233,7 +233,7 @@
           Swal.fire({
           position: "center",
           icon: "success",
-          title: "Data Master <?= $this->session->flashdata('info'); ?>",
+          title: "Data <?= $this->session->flashdata('info'); ?>",
           showConfirmButton: false,
           timer: 1500
           });
@@ -250,7 +250,7 @@
           Swal.fire({
           position: "center",
           icon: "success",
-          title: "Data Master <?= $this->session->flashdata('hapus'); ?> Berhasil Dihapus",
+          title: "Data <?= $this->session->flashdata('hapus'); ?> Berhasil Dihapus",
           showConfirmButton: false,
           timer: 1500
           });
@@ -267,7 +267,7 @@
           Swal.fire({
           position: "center",
           icon: "success",
-          title: "Data master <?= $this->session->flashdata('update'); ?> berhasil diubah",
+          title: "Data <?= $this->session->flashdata('update'); ?> berhasil diubah",
           showConfirmButton: false,
           timer: 3000
           });

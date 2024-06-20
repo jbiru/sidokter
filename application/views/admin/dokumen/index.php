@@ -112,7 +112,7 @@
                                       <div class="col-lg-6 text-start">
                                         <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Judul Dokumen</label>
-                                          <input class="form-control" type="text" name="judul">
+                                          <input class="form-control" type="text" required name="judul" value="<?= $row->judul_dokumen;?>">
                                         </div>
                                         <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Jenis Dokumen</label>
@@ -125,7 +125,7 @@
                                         </div>
                                         <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Tanggal Terbit</label>
-                                          <input class="form-control" type="date" name="tgl_terbit" value=<?=$row->tgl_terbit?> >
+                                          <input class="form-control" required type="date" name="tgl_terbit" value=<?=$row->tgl_terbit?> >
                                         </div>
                                         <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Sumber</label>

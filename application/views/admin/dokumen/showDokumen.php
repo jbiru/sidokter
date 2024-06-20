@@ -13,7 +13,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="example-text-input" class="form-control-label">Judul Dokumen</label>
-                      <input class="form-control" type="text" name="judul">
+                      <input required class="form-control" type="text" name="judul">
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -29,21 +29,21 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="example-text-input" class="form-control-label">Tanggal Terbit</label>
-                      <input class="form-control" type="date" name="tgl_terbit">
+                      <input required class="form-control" type="date" name="tgl_terbit">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="example-text-input" class="form-control-label">Sumber</label>
-                      <input class="form-control" type="text" name="sumber">
+                      <input  class="form-control" type="text" name="sumber">
                     </div>
                   </div>
                   <div class="form-check ms-3">
-                    <input class="form-check-input" type="checkbox" name="status" value="1" id="fcustomCheck1" checked="">
+                    <input  class="form-check-input" type="checkbox" name="status" value="1" id="fcustomCheck1" checked="">
                     <label class="custom-control-label" for="customCheck1">Publik</label>
                   </div>
                   <div class="input-group mb-3">
-                    <input type="file" class="form-control" name="dokumen">
+                    <input type="file" required class="form-control" name="dokumen">
                   </div>
                   <div class="col-md-6"></div>
                   <div class="col-md-6 ">
