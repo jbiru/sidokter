@@ -4,6 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User_Cont extends CI_Controller {
     public function __construct() {
         parent::__construct();
+        $this->form_validation->set_rules('username', 'Username', 'trim|required');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required');
+        $this->form_validation->set_rules('nama_user', 'Nama User', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat User', 'required');
+        $this->form_validation->set_rules('id_level', 'Pilih Level User', 'required');
+        $this->form_validation->set_rules('id_bidang', 'Pilih Bidang User', 'required');
+        $this->form_validation->set_rules('no_telp', 'No Telp User', 'required');
+        
         if($this->session->userdata('username')==FALSE){
             $this->session->set_flashdata('pesan',' <div class="alert alert-danger alert-dismissible fade show" role="alert">
            Anda Belum login
@@ -24,6 +32,10 @@ class User_Cont extends CI_Controller {
         $this->load->view('admin/footer');
     }
     public function add() {
+
+        // Atur rules validasi
+        
+
         $nama_user=$this->input->post('nama_user');
         $alamat=$this->input->post('alamat');
         $id_level=$this->input->post('id_level');
@@ -37,7 +49,7 @@ class User_Cont extends CI_Controller {
             'id_level'      =>$id_level,
             'id_bidang'     =>$id_bidang,
             'username'      =>$username,
-            'password'      =>$password,
+            'password'      =>md5($password),
             'no_telp'       =>$no_telp,
         );
         $this->db->insert('user',$data);
@@ -58,7 +70,7 @@ class User_Cont extends CI_Controller {
             'id_level'      =>$id_level,
             'id_bidang'     =>$id_bidang,
             'username'      =>$username,
-            'password'      =>$password,
+            'password'      =>md5($password),
             'no_telp'       =>$no_telp,
         );
         $this->db->where($where);

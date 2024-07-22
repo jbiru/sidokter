@@ -57,7 +57,7 @@
                     </tr>
                     <tr>
                         <th scope="col">Didownload</th>
-                        <td scope="col">: <?php var_dump($jumlah->down);?> x diunduh</td>
+                        <td scope="col">: <?php echo ($jumlah->down);?> x diunduh</td>
                     </tr>
                 </thead>
             </table>

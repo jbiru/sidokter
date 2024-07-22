@@ -9,7 +9,7 @@
       <div class="container text-center">
         <div class="d-flex flex-column justify-content-center align-items-center">
           <h1 data-aos="fade-up" class="">Welcome to <span>SiDokter</span></h1>
-          <p data-aos="fade-up" data-aos-delay="100" class="">Sistem Dokumen dan Informasi Rumah Sakit Umum Daerah Ngimbang<br></p>
+          <p data-aos="fade-up" data-aos-delay="100" class="">Sistem Dokumen Terintegrasi Rumah Sakit Umum Daerah Ngimbang<br></p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
             <a href="#about" class="btn-get-started">Mulai Pencarian Dokumen</a>
           </div>
@@ -31,7 +31,7 @@
               <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
               <div>
                 <h4 class="title"><a href="#" class="stretched-link">Dokumen</a></h4>
-                <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                <p class="description">Jumlah Semua <?php echo (count($tiga));?> Dokumen berhasil diupload</p>
               </div>
             </div>
           </div>
@@ -41,8 +41,8 @@
             <div class="service-item d-flex">
               <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
               <div>
-                <h4 class="title"><a href="#" class="stretched-link">Anggota</a></h4>
-                <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exa</p>
+                <h4 class="title"><a href="#" class="stretched-link">Dokumen dilihat</a></h4>
+                <p class="description">Jumlah Dokumen Dilihat <?= $view->jumlah_view;?> Kali</p>
               </div>
             </div>
           </div><!-- End Service Item -->
@@ -51,8 +51,8 @@
             <div class="service-item d-flex">
               <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
               <div>
-                <h4 class="title"><a href="#" class="stretched-link">Kegiatan</a></h4>
-                <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</p>
+                <h4 class="title"><a href="#" class="stretched-link">Dokumen diunduh</a></h4>
+                <p class="description">Jumlah Dokumen Terunduh <?= $unduh->jumlah_unduh;?> kali</p>
               </div>
             </div>
           </div><!-- End Service Item -->
@@ -124,8 +124,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2 class="">Dokumen Terbaru</h2>
-        <p>Yeay... Terbaru! 3 dokumen terbaru yang baru diupload oleh mimin..</p>
+        <h2 class="">Latar Belakang Sidkter</h2>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -138,10 +137,9 @@
                 <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
                   <i class="bi bi-briefcase"></i>
                   <div>
-                    <h4 class="d-none d-lg-block">Modi sit est dela pireda nest</h4>
+                    <h4 class="d-none d-lg-block">Efisiensi dan Aksesibilitas</h4>
                     <p>
-                      Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                      velit esse cillum dolore eu fugiat nulla pariatur
+                    Sistem elektronik memungkinkan dokumen untuk diunggah secara digital, mengurangi ketergantungan pada dokumen fisik yang memerlukan ruang penyimpanan fisik yang besar. Ini meningkatkan efisiensi dalam pencarian dan akses dokumen.
                     </p>
                   </div>
                 </a>
@@ -150,10 +148,9 @@
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
                   <i class="bi bi-briefcase"></i>
                   <div>
-                    <h4 class="d-none d-lg-block">Unde praesenti mara setra le</h4>
+                    <h4 class="d-none d-lg-block">Keamanan dan Perlindungan Data</h4>
                     <p>
-                      Recusandae atque nihil. Delectus vitae non similique magnam molestiae sapiente similique
-                      tenetur aut voluptates sed voluptas ipsum voluptas
+                    Dokumen yang diunggah dalam sistem elektronik dapat dilindungi dengan teknologi keamanan yang canggih, seperti enkripsi data dan pengaturan izin akses. 
                     </p>
                   </div>
                 </a>
@@ -162,10 +159,9 @@
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
                   <i class="bi bi-briefcase"></i>
                   <div>
-                    <h4 class="d-none d-lg-block">Pariatur explica nitro dela</h4>
+                    <h4 class="d-none d-lg-block">Pemeliharaan dan Pengelolaan yang Lebih Mudah</h4>
                     <p>
-                      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                      Debitis nulla est maxime voluptas dolor aut
+                    Dengan sistem elektronik, pengelolaan arsip dapat dilakukan dengan lebih efektif. Dokumen elektronik lebih mudah untuk disimpan, dikelola, dan dipelihara, karena tidak memerlukan perawatan fisik yang rumit seperti dokumen kertas.
                     </p>
                   </div>
                 </a>

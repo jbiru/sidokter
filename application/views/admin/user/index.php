@@ -35,15 +35,15 @@
                     <div class="modal-body">
                       <div class="mb-3">
                         <label for="nama_user" class="form-label">Nama User</label>
-                        <input type="text" name="nama_user" class="form-control" id="nama_user">
+                        <input type="text" required name="nama_user" class="form-control" id="nama_user">
                       </div>
                       <div class="mb-3">
                         <label for="alamat_user" class="form-label">Alamat</label>
-                        <input type="text" name="alamat" class="form-control" id="alamat_user">
+                        <input type="text" required name="alamat" class="form-control" id="alamat_user">
                       </div>
                       <div class="mb-3">
                         <label for="id_level" class="form-label">Level</label>
-                        <select name="id_level" id="id_level" class="form-control">
+                        <select required name="id_level" id="id_level" class="form-control">
                           <?php foreach($level as $row_b){ ?>
                             <option value="<?= $row_b->id_level;?>"><?= $row_b->nama_level;;?></option>
                           <?php } ?>
@@ -51,15 +51,15 @@
                       </div>
                       <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" name="username" class="form-control" id="username">
+                        <input type="text" required name="username" class="form-control" id="username">
                       </div>
                       <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" id="password">
+                        <input type="password" required name="password" class="form-control" id="password">
                       </div>
                       <div class="mb-3">
                         <label for="id_bidang" class="form-label">Bidang</label>
-                        <select name="id_bidang" id="id_bidang" class="form-control">
+                        <select required name="id_bidang" id="id_bidang" class="form-control">
                           <?php foreach($bidang as $row_b){ ?>
                             <option value="<?= $row_b->id_bidang;?>"><?= $row_b->nama_bidang;;?></option>
                           <?php } ?>
@@ -67,7 +67,7 @@
                       </div>
                       <div class="mb-3">
                         <label for="no_telp" class="form-label">No Handphone</label>
-                        <input type="number" name="no_telp" class="form-control" id="no_telp">
+                        <input type="number" required name="no_telp" class="form-control" id="no_telp">
                       </div>
                     </div>
                     <div class="modal-footer">
@@ -127,7 +127,7 @@
                         <form method="POST" action="<?= base_url('user_Cont/delete/'.$row_user->id_user)?>" >
                           <div class="modal-body">
                             <h6>Apakah anda yakin ingin menghapus  <?= $row_user->nama_user;?></h6>
-                            <input type="hidden" name="nama" value="<?= $row_user->nama_user ?>">
+                            <input type="hidden" required name="nama" value="<?= $row_user->nama_user ?>">
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -149,15 +149,15 @@
                           <div class="modal-body">
                             <div class="mb-3">
                               <label for="nama_user" class="form-label">Nama User</label>
-                              <input type="text" name="nama_user" class="form-control" id="nama_user" value="<?= $row_user->nama_user;?>">
+                              <input type="text" required name="nama_user" class="form-control" id="nama_user" value="<?= $row_user->nama_user;?>">
                             </div>
                             <div class="mb-3">
                               <label for="alamat_user" class="form-label">Alamat</label>
-                              <input type="text" name="alamat" class="form-control" id="alamat_user" value="<?= $row_user->alamat;?>">
+                              <input type="text" required name="alamat" class="form-control" id="alamat_user" value="<?= $row_user->alamat;?>">
                             </div>
                             <div class="mb-3">
                               <label for="id_level" class="form-label">Level</label>
-                              <select name="id_level" id="id_level" class="form-control">
+                              <select required name="id_level" id="id_level" class="form-control">
                                 <?php foreach($level as $row_b){ ?>
                                   <option value="<?= $row_b->id_level;?>"><?= $row_b->nama_level;;?></option>
                                 <?php } ?>
@@ -165,15 +165,15 @@
                             </div>
                             <div class="mb-3">
                               <label for="username" class="form-label">Username</label>
-                              <input type="text" name="username" class="form-control" id="username" value="<?= $row_user->username;?>">
+                              <input type="text" required name="username" class="form-control" id="username" value="<?= $row_user->username;?>">
                             </div>
                             <div class="mb-3">
                               <label for="password" class="form-label">Password</label>
-                              <input type="password" name="password" class="form-control" id="password" value="<?= $row_user->password;?>">
+                              <input type="password" required name="password" class="form-control" id="password" value="<?= $row_user->password;?>">
                             </div>
                             <div class="mb-3">
                               <label for="id_bidang" class="form-label">Bidang</label>
-                              <select name="id_bidang" id="id_bidang" class="form-control">
+                              <select required name="id_bidang" id="id_bidang" class="form-control">
                                 <?php foreach($bidang as $row_b){ ?>
                                   <option value="<?= $row_b->id_bidang;?>"><?= $row_b->nama_bidang;;?></option>
                                 <?php } ?>
@@ -181,7 +181,7 @@
                             </div>
                             <div class="mb-3">
                               <label for="no_telp" class="form-label">No Handphone</label>
-                              <input type="number" name="no_telp" class="form-control" id="no_telp" value="0<?= $row_user->no_telp;?>">
+                              <input type="number" required name="no_telp" class="form-control" id="no_telp" value="0<?= $row_user->no_telp;?>">
                             </div>
                           </div>
                           <div class="modal-footer">

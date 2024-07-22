@@ -14,6 +14,7 @@ class Signin extends CI_Controller {
 	}
 	public function aksi()
 	{
+        
 		$username = $this->input->post('username');
         $password = $this->input->post('password');
 
@@ -22,22 +23,23 @@ class Signin extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'required');
 
 		$u=array('username'=>$username);
-		$p=array('password'=>$password);
+		$p=array('password'=>md5($password));
         $query=$this->db->get_where('user',$u,$p)->result();
         if($query){
-        foreach ($query as $row) {
-            if($row->username==$username && $row->password==$password) {
-                $this->session->set_userdata('username',"$row->username");
-                $this->session->set_userdata('password',"$row->password");
-                $this->session->set_userdata('level',"$row->level");
-                $this->session->set_userdata('id_level',"$row->id_level");
-                $this->session->set_userdata('nama_user',"$row->nama_user");
-                $this->session->set_userdata('id_user',"$row->id_user");
-                $this->session->set_userdata('id_bidang',"$row->id_bidang");
-            }else{}
+            foreach ($query as $row) {
+                if($row->username==$username && $row->password==md5($password)) {
+                    $this->session->set_userdata('username',"$row->username");
+                    // $this->session->set_userdata('password',"$row->password");
+                    $this->session->set_userdata('level',"$row->level");
+                    $this->session->set_userdata('id_level',"$row->id_level");
+                    $this->session->set_userdata('nama_user',"$row->nama_user");
+                    $this->session->set_userdata('id_user',"$row->id_user");
+                    $this->session->set_userdata('id_bidang',"$row->id_bidang");
+                }else{}
             }
             redirect('dashboard/index');
         }
+        $this->session->set_flashdata('login','<div class="alert alert-warning text-white" role="alert">Username dan Password Salah !</div>');
         redirect('signin/index');
 	}
 

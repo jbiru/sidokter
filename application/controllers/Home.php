@@ -21,6 +21,8 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$data['tiga']=$this->db->query('SELECT * FROM activity_document ORDER BY id_activity_document DESC ')->result();
+		$data['unduh']=$this->db->query('SELECT SUM(down) as jumlah_unduh FROM monitoring')->row();
+		$data['view']=$this->db->query('SELECT SUM(view) as jumlah_view FROM monitoring')->row();
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/navbar');
 		$this->load->view('home',$data);
@@ -37,6 +39,7 @@ class Home extends CI_Controller {
 	{
 		$keyword = $this->input->post('input');
 		$this->db->like('judul_dokumen',$keyword);
+		$this->db->where('status',1);
         $data['results'] = $this->db->get('activity_document')->result();
 		$this->load->view('livesearch',$data);
 	}
@@ -50,9 +53,9 @@ class Home extends CI_Controller {
 			));
 		}else{
 			$jumlah=intval($count[0]->view)+1;
-			$this->db->query("UPDATE `monitoring` SET `view`='$jumlah' WHERE `id_activity_document`='$id',");
+			$this->db->query("UPDATE `monitoring` SET `view`='$jumlah' WHERE `id_activity_document`='$id'");
 		}
-		$data['jumlah']=$this->db->get('monitoring')->row();
+		$data['jumlah']=$this->db->get_where('monitoring',array('id_activity_document' =>$id))->row();
 		$data['dokumen']=$this->db->get_where('activity_document',array('id_activity_document' =>$id))->row();
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/navbar');
